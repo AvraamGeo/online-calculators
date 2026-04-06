@@ -1,0 +1,16 @@
+<h2>Loan</h2>
+<input id="a" placeholder="amount">
+<input id="r" placeholder="rate">
+<input id="y" placeholder="years">
+<button onclick="c()">Calc</button>
+<p id="out"></p>
+
+<script>
+function c(){
+let a=document.getElementById("a").value
+let r=document.getElementById("r").value/100/12
+let n=document.getElementById("y").value*12
+let m=(a*r)/(1-Math.pow(1+r,-n))
+document.getElementById("out").innerText=m.toFixed(2)
+}
+</script>
