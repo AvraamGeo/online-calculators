@@ -1,13 +1,38 @@
-<h2>Percentage</h2>
-<input id="a">
-<input id="p">
-<button onclick="c()">Calc</button>
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Percentage Calculator Online - Free Tool</title>
+
+<meta name="description" content="Free percentage calculator. Calculate percentages instantly online.">
+
+</head>
+
+<body>
+
+<a href="index.html">⬅ Back to Home</a>
+
+<h2>Percentage Calculator</h2>
+
+<input id="a" type="number" placeholder="Amount">
+<input id="p" type="number" placeholder="Percentage">
+
+<button onclick="calc()">Calculate</button>
+
 <p id="r"></p>
 
 <script>
-function c(){
-let a=document.getElementById("a").value
-let p=document.getElementById("p").value
-document.getElementById("r").innerText=a*p/100
+function calc(){
+let a = document.getElementById("a").value
+let p = document.getElementById("p").value
+document.getElementById("r").innerText = (a*p/100).toFixed(2)
 }
 </script>
+
+<hr>
+<p style="text-align:center;">
+© 2026 Smart Calculators
+</p>
+
+</body>
+</html>
