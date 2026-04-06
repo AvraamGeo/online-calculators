@@ -1,12 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Age Calculator Online - Free Tool</title>
+
+<meta name="description" content="Free age calculator. Calculate your age instantly online.">
+
+</head>
+
+<body>
+
+<a href="index.html">⬅ Back to Home</a>
+
 <h2>Age Calculator</h2>
+
 <input type="date" id="d">
-<button onclick="c()">Calc</button>
+
+<button onclick="calc()">Calculate</button>
+
 <p id="r"></p>
 
 <script>
-function c(){
-let d=new Date(document.getElementById("d").value)
-let age=(Date.now()-d)/(1000*60*60*24*365)
-document.getElementById("r").innerText=Math.floor(age)
+function calc(){
+let d = new Date(document.getElementById("d").value)
+let age = (Date.now() - d) / (1000*60*60*24*365)
+document.getElementById("r").innerText = Math.floor(age)
 }
 </script>
+
+<hr>
+<p style="text-align:center;">
+© 2026 Smart Calculators
+</p>
+
+</body>
+</html>
