@@ -1,6 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>BMI Calculator Online - Free Tool</title>
+
+<meta name="description" content="Free BMI calculator. Calculate your body mass index instantly.">
+
+</head>
+<body>
+<a href="index.html">⬅ Back to Home</a>
 <h2>BMI Calculator</h2>
-<input id="w" placeholder="Weight">
-<input id="h" placeholder="Height">
+<input id="w" type="number" placeholder="Weight">
+<input id="h" type="number" placeholder="Height">
 <button onclick="calc()">Calc</button>
 <p id="r"></p>
 
@@ -8,6 +19,13 @@
 function calc(){
 let w=document.getElementById("w").value
 let h=document.getElementById("h").value/100
-document.getElementById("r").innerText=w/(h*h)
+document.getElementById("r").innerText=(w/(h*h)).toFixed(2)
 }
 </script>
+<hr>
+<p style="text-align:center;">
+© 2026 Smart Calculators
+</p>
+
+</body>
+</html>
