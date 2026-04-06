@@ -1,16 +1,41 @@
-<h2>Loan</h2>
-<input id="a" placeholder="amount">
-<input id="r" placeholder="rate">
-<input id="y" placeholder="years">
-<button onclick="c()">Calc</button>
-<p id="out"></p>
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Loan Calculator Online - Free Tool</title>
+
+<meta name="description" content="Calculate loan payments easily with this free calculator.">
+
+</head>
+
+<body>
+
+<a href="index.html">⬅ Back to Home</a>
+
+<h2>Loan Calculator</h2>
+
+<input id="amount" type="number" placeholder="Loan Amount">
+<input id="rate" type="number" placeholder="Interest %">
+<input id="years" type="number" placeholder="Years">
+
+<button onclick="calc()">Calculate</button>
+
+<p id="r"></p>
 
 <script>
-function c(){
-let a=document.getElementById("a").value
-let r=document.getElementById("r").value/100/12
-let n=document.getElementById("y").value*12
-let m=(a*r)/(1-Math.pow(1+r,-n))
-document.getElementById("out").innerText=m.toFixed(2)
+function calc(){
+let a = document.getElementById("amount").value
+let r = document.getElementById("rate").value/100/12
+let n = document.getElementById("years").value*12
+let m = (a*r)/(1-Math.pow(1+r,-n))
+document.getElementById("r").innerText = m.toFixed(2)
 }
 </script>
+
+<hr>
+<p style="text-align:center;">
+© 2026 Smart Calculators
+</p>
+
+</body>
+</html>
