@@ -1,0 +1,13 @@
+<h2>Discount</h2>
+<input id="p">
+<input id="d">
+<button onclick="c()">Calc</button>
+<p id="r"></p>
+
+<script>
+function c(){
+let p=document.getElementById("p").value
+let d=document.getElementById("d").value
+document.getElementById("r").innerText=p-(p*d/100)
+}
+</script>
