@@ -1,13 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Tip Calculator Online - Free Tool</title>
+
+<meta name="description" content="Calculate tips easily with this free online tip calculator.">
+
+</head>
+
+<body>
+
+<a href="index.html">⬅ Back to Home</a>
+
 <h2>Tip Calculator</h2>
-<input id="b">
-<input id="t">
-<button onclick="c()">Calc</button>
+
+<input id="bill" type="number" placeholder="Bill Amount">
+<input id="tip" type="number" placeholder="Tip %">
+
+<button onclick="calc()">Calculate</button>
+
 <p id="r"></p>
 
 <script>
-function c(){
-let b=document.getElementById("b").value
-let t=document.getElementById("t").value
-document.getElementById("r").innerText=b*(t/100)
+function calc(){
+let bill = document.getElementById("bill").value
+let tip = document.getElementById("tip").value
+document.getElementById("r").innerText = (bill*(tip/100)).toFixed(2)
 }
 </script>
+
+<hr>
+<p style="text-align:center;">
+© 2026 Smart Calculators
+</p>
+
+</body>
+</html>
