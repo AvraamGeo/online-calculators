@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Smart Online Calculators</title>
+<title>Smart Calculators</title>
 
 <style>
-
-body{
-font-family:Arial;
-background:#f4f6f9;
-margin:0;
-}
+body{font-family:Arial;background:#f4f6f9;margin:0;}
 
 header{
 background:#2c3e50;
@@ -18,143 +13,66 @@ padding:20px;
 text-align:center;
 }
 
-.container{
-max-width:900px;
-margin:auto;
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
 padding:20px;
+max-width:1000px;
+margin:auto;
 }
 
 .card{
 background:white;
 padding:20px;
-margin:20px 0;
 border-radius:10px;
+text-align:center;
 box-shadow:0 3px 10px rgba(0,0,0,0.1);
 }
 
-input{
-padding:10px;
-margin:5px;
-width:200px;
-}
-
-button{
-background:#3498db;
-color:white;
-border:none;
-padding:10px 20px;
-border-radius:5px;
-cursor:pointer;
-}
-
-button:hover{
-background:#2980b9;
-}
-
-.result{
+a{
+text-decoration:none;
+color:#3498db;
 font-weight:bold;
-margin-top:10px;
-color:#27ae60;
 }
 
 </style>
-
 </head>
 
 <body>
 
 <header>
-<h1>Smart Online Calculators</h1>
-<p>Free tools for everyday calculations</p>
+<h1>Smart Calculators</h1>
+<p>Free online tools</p>
 </header>
 
-<div class="container">
+<div class="grid">
 
 <div class="card">
-<h2>Percentage Calculator</h2>
-
-<input id="amount" placeholder="Amount">
-<br>
-
-<input id="percent" placeholder="Percentage">
-<br>
-
-<button onclick="calcPercent()">Calculate</button>
-
-<p id="result1" class="result"></p>
+<a href="bmi.html">BMI Calculator</a>
 </div>
-
 
 <div class="card">
-<h2>BMI Calculator</h2>
-
-<input id="weight" placeholder="Weight kg">
-<br>
-
-<input id="height" placeholder="Height cm">
-<br>
-
-<button onclick="calcBMI()">Calculate</button>
-
-<p id="result2" class="result"></p>
+<a href="percentage.html">Percentage Calculator</a>
 </div>
-
 
 <div class="card">
-<h2>Tip Calculator</h2>
-
-<input id="bill" placeholder="Bill amount">
-<br>
-
-<input id="tip" placeholder="Tip %">
-<br>
-
-<button onclick="calcTip()">Calculate</button>
-
-<p id="result3" class="result"></p>
+<a href="tip.html">Tip Calculator</a>
 </div>
 
-
+<div class="card">
+<a href="age.html">Age Calculator</a>
 </div>
 
-<script>
+<div class="card">
+<a href="loan.html">Loan Calculator</a>
+</div>
 
-function calcPercent(){
+<div class="card">
+<a href="discount.html">Discount Calculator</a>
+</div>
 
-let amount=document.getElementById("amount").value
-let percent=document.getElementById("percent").value
-
-let result=(amount*percent)/100
-
-document.getElementById("result1").innerText="Result: "+result
-
-}
-
-
-function calcBMI(){
-
-let w=document.getElementById("weight").value
-let h=document.getElementById("height").value/100
-
-let bmi=w/(h*h)
-
-document.getElementById("result2").innerText="BMI: "+bmi.toFixed(2)
-
-}
-
-
-function calcTip(){
-
-let bill=document.getElementById("bill").value
-let tip=document.getElementById("tip").value
-
-let total=bill*(tip/100)
-
-document.getElementById("result3").innerText="Tip: "+total
-
-}
-
-</script>
+</div>
 
 </body>
 </html>
