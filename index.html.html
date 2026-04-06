@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quick Online Calculators</title>
+<style>
+body { font-family: Arial; text-align:center; margin-top:20px; }
+input { padding:8px; margin:5px; width:200px; }
+button { padding:8px 20px; margin:10px; }
+h2 { color: #333; margin-top:30px; }
+p.result { color: #007700; font-weight:bold; }
+hr { margin:30px 0; }
+</style>
+</head>
+<body>
+
+<h1>Quick Online Calculators</h1>
+
+<!-- Percentage Calculator -->
+<h2>Percentage Calculator</h2>
+<input type="number" id="pct_amount" placeholder="Amount">
+<br>
+<input type="number" id="pct_percent" placeholder="Percentage">
+<br>
+<button onclick="calcPercentage()">Calculate</button>
+<p id="pct_result" class="result"></p>
+
+<hr>
+
+<!-- Tip Calculator -->
+<h2>Tip Calculator</h2>
+<input type="number" id="tip_bill" placeholder="Bill Amount">
+<br>
+<input type="number" id="tip_percent" placeholder="Tip %">
+<br>
+<button onclick="calcTip()">Calculate</button>
+<p id="tip_result" class="result"></p>
+
+<hr>
+
+<!-- BMI Calculator -->
+<h2>BMI Calculator</h2>
+<input type="number" id="bmi_weight" placeholder="Weight (kg)">
+<br>
+<input type="number" id="bmi_height" placeholder="Height (cm)">
+<br>
+<button onclick="calcBMI()">Calculate</button>
+<p id="bmi_result" class="result"></p>
+
+<hr>
+
+<!-- Age Calculator -->
+<h2>Age Calculator</h2>
+<input type="date" id="dob">
+<br>
+<button onclick="calcAge()">Calculate Age</button>
+<p id="age_result" class="result"></p>
+
+<hr>
+
+<!-- Loan Calculator -->
+<h2>Loan Calculator</h2>
+<input type="number" id="loan_amount" placeholder="Loan Amount">
+<br>
+<input type="number" id="loan_rate" placeholder="Annual Interest %">
+<br>
+<input type="number" id="loan_years" placeholder="Years">
+<br>
+<button onclick="calcLoan()">Calculate</button>
+<p id="loan_result" class="result"></p>
+
+<hr>
+
+<!-- Calorie Calculator -->
+<h2>Calorie Calculator</h2>
+<input type="number" id="cal_weight" placeholder="Weight (kg)">
+<br>
+<input type="number" id="cal_activity" placeholder="Activity Level (1-5)">
+<br>
+<button onclick="calcCalories()">Calculate Calories</button>
+<p id="cal_result" class="result"></p>
+
+<hr>
+
+<!-- Percentage Increase/Decrease -->
+<h2>Percentage Increase / Decrease</h2>
+<input type="number" id="val_original" placeholder="Original Value">
+<br>
+<input type="number" id="val_new" placeholder="New Value">
+<br>
+<button onclick="calcPercentChange()">Calculate</button>
+<p id="change_result" class="result"></p>
+
+<script>
+// Percentage
+function calcPercentage(){
+   let amount = parseFloat(document.getElementById("pct_amount").value);
+   let percent = parseFloat(document.getElementById("pct_percent").value);
+   if(isNaN(amount) || isNaN(percent)){
+       document.getElementById("pct_result").innerText = "Enter valid numbers!";
+       return;
+   }
+   let result = (amount * percent / 100).toFixed(2);
+   document.getElementById("pct_result").innerText = percent + "% of " + amount + " is " + result;
+}
+
+// Tip
+function calcTip(){
+   let bill = parseFloat(document.getElementById("tip_bill").value);
+   let percent = parseFloat(document.getElementById("tip_percent").value);
+   if(isNaN(bill) || isNaN(percent)){
+       document.getElementById("tip_result").innerText = "Enter valid numbers!";
+       return;
+   }
+   let tip = (bill * percent / 100).toFixed(2);
+   let total = (bill + parseFloat(tip)).toFixed(2);
+   document.getElementById("tip_result").innerText = "Tip: " + tip + " | Total: " + total;
+}
+
+// BMI
+function calcBMI(){
+   let weight = parseFloat(document.getElementById("bmi_weight").value);
+   let height = parseFloat(document.getElementById("bmi_height").value)/100;
+   if(isNaN(weight) || isNaN(height)){
+       document.getElementById("bmi_result").innerText = "Enter valid numbers!";
+       return;
+   }
+   let bmi = (weight / (height * height)).toFixed(2);
+   document.getElementById("bmi_result").innerText = "Your BMI is " + bmi;
+}
+
+// Age
+function calcAge(){
+   let dob = new Date(document.getElementById("dob").value);
+   if(dob == "Invalid Date"){
+       document.getElementById("age_result").innerText = "Enter a valid date!";
+       return;
+   }
+   let diff = Date.now() - dob.getTime();
+   let age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+   document.getElementById("age_result").innerText = "You are " + age + " years old.";
+}
+
+// Loan
+function calcLoan(){
+   let amount = parseFloat(document.getElementById("loan_amount").value);
+   let rate = parseFloat(document.getElementById("loan_rate").value)/100/12;
+   let years = parseFloat(document.getElementById("loan_years").value);
+   if(isNaN(amount) || isNaN(rate) || isNaN(years)){
+       document.getElementById("loan_result").innerText = "Enter valid numbers!";
+       return;
+   }
+   let n = years * 12;
+   let monthly = (amount*rate)/(1-Math.pow(1+rate,-n));
+   document.getElementById("loan_result").innerText = "Monthly Payment: " + monthly.toFixed(2);
+}
+
+// Calories
+function calcCalories(){
+   let weight = parseFloat(document.getElementById("cal_weight").value);
+   let activity = parseFloat(document.getElementById("cal_activity").value);
+   if(isNaN(weight) || isNaN(activity)){
+       document.getElementById("cal_result").innerText = "Enter valid numbers!";
+       return;
+   }
+   let calories = (weight * 24 * activity).toFixed(0);
+   document.getElementById("cal_result").innerText = "Calories/day: " + calories;
+}
+
+// Percentage Change
+function calcPercentChange(){
+   let original = parseFloat(document.getElementById("val_original").value);
+   let newVal = parseFloat(document.getElementById("val_new").value);
+   if(isNaN(original) || isNaN(newVal) || original==0){
+       document.getElementById("change_result").innerText = "Enter valid numbers!";
+       return;
+   }
+   let change = ((newVal-original)/original*100).toFixed(2);
+   document.getElementById("change_result").innerText = "Change: " + change + "%";
+}
+</script>
+
+</body>
+</html>
