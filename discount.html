@@ -1,13 +1,38 @@
-<h2>Discount</h2>
-<input id="p">
-<input id="d">
-<button onclick="c()">Calc</button>
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Discount Calculator Online - Free Tool</title>
+
+<meta name="description" content="Calculate discounts easily with this free online calculator.">
+
+</head>
+
+<body>
+
+<a href="index.html">⬅ Back to Home</a>
+
+<h2>Discount Calculator</h2>
+
+<input id="price" type="number" placeholder="Price">
+<input id="disc" type="number" placeholder="Discount %">
+
+<button onclick="calc()">Calculate</button>
+
 <p id="r"></p>
 
 <script>
-function c(){
-let p=document.getElementById("p").value
-let d=document.getElementById("d").value
-document.getElementById("r").innerText=p-(p*d/100)
+function calc(){
+let price = document.getElementById("price").value
+let disc = document.getElementById("disc").value
+document.getElementById("r").innerText = (price - (price*disc/100)).toFixed(2)
 }
 </script>
+
+<hr>
+<p style="text-align:center;">
+© 2026 Smart Calculators
+</p>
+
+</body>
+</html>
