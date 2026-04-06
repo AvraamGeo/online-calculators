@@ -1,0 +1,13 @@
+<h2>Tip Calculator</h2>
+<input id="b">
+<input id="t">
+<button onclick="c()">Calc</button>
+<p id="r"></p>
+
+<script>
+function c(){
+let b=document.getElementById("b").value
+let t=document.getElementById("t").value
+document.getElementById("r").innerText=b*(t/100)
+}
+</script>
